@@ -20,10 +20,7 @@
     cssbeautify = require('gulp-cssbeautify'),
     stripCssComments = require('gulp-strip-css-comments'),
     cssDeclarationSorter = require('css-declaration-sorter'),
-    changed = require('gulp-changed'),
-    cached = require('gulp-cached'),
-    gulpif = require('gulp-if'),
-    filter = require('gulp-filter');
+    rev = require('gulp-rev-append');
 
   // Попробовать позже https://www.npmjs.com/package/gulp-pug-inheritance
   // jadeInheritance = require('gulp-jade-inheritance'),
@@ -36,12 +33,6 @@
   gulp.task('views', function buildHTML() {
     return gulp
       .src('app/assets/views/*.pug')
-      .pipe(changed('dest', {extension: '.html'}))
-      .pipe(gulpif(global.isWatching, cached('views')))
-      .pipe(pugInheritance({basedir: 'views'}))
-      .pipe(filter(function (file) {
-        return !/\/_/.test(file.path) && !/^_/.test(file.relative);
-      }))
       .pipe(
         pug({
           pretty: true
@@ -50,13 +41,18 @@
       .pipe(gulp.dest('dest/'));
   });
 
-  gulp.task('setWatch', function() {
-    global.isWatching = true;
+  gulp.task('hash', function() {
+    return gulp.src('dest/*.html')
+      .pipe(rev())
+      .pipe(gulp.dest('dest/'));
   });
 
   const processors = [
     require('postcss-import'),
+    require('postcss-mixins'),
     require('postcss-alias'),
+    require('postcss-for'),
+    require('postcss-each'),
     require('postcss-assets')({
       loadPaths: ['img/', 'img/about', 'img/icons'],
       basePath: 'dest/',
@@ -66,14 +62,13 @@
     require('postcss-nested'),
     require('postcss-inline-media'),
     require('postcss-short-spacing'),
-    require('postcss-short-text'),
     require('postcss-size'),
     require('postcss-position'),
     require('postcss-flexbox'),
     require('postcss-simple-vars'),
+    require('postcss-short-text'),
     require('postcss-responsive-type'),
     require('postcss-extend'),
-    require('postcss-mixins'),
     require('postcss-inline-svg')({
       path: 'app/assets/img/'
     }),
@@ -99,26 +94,29 @@
 
   //write style
   gulp.task('postcss', function() {
-    return gulp
-      .src(['app/styles/main.sss'])
-      .pipe(sourcemaps.init())
-      .pipe(
-        postcss(processors, { parser: sugarss }).on('error', notify.onError())
-      )
-      .pipe(
-        cssbeautify({
-          indent: '  ',
-          autosemicolon: true
-        })
-      )
-      .pipe(rename({ extname: '.css' }))
-      .pipe(sourcemaps.write('/'))
-      .pipe(gulp.dest('dest/styles/'));
+    return (
+      gulp
+        .src(['app/styles/main.sss'])
+        .pipe(sourcemaps.init())
+        .pipe(
+          postcss(processors, { parser: sugarss }).on('error', notify.onError())
+        )
+        .pipe(
+          cssbeautify({
+            indent: '  ',
+            autosemicolon: true
+          })
+        )
+        .pipe(rename({ extname: '.css' }))
+        //.pipe(sourcemaps.write('/'))
+        .pipe(gulp.dest('dest/styles/'))
+    );
   });
 
   // write js
   gulp.task('scripts', function() {
-    return gulp.src('app/scripts/**').pipe(gulp.dest('dest/scripts'));
+    return gulp.src('app/scripts/**')
+    .pipe(gulp.dest('dest/scripts'));
   });
 
   //delete dest folder
@@ -160,11 +158,12 @@
       gulp.parallel(
         'assets',
         'postcss',
-        'views',
+        // 'hash',
         'libs-css',
         'libs-js',
         'scripts'
-      )
+      ),
+      'views'
     )
   );
 
@@ -184,9 +183,12 @@
     gulp.watch('app/scripts/**/*.*', gulp.series('scripts'));
     gulp.watch('app/assets/**/*.*', gulp.series('assets'));
     gulp.watch('app/assets/views/**/*.*', gulp.series('views'));
+    // gulp.watch('dest/styles/main.css*', gulp.series('hash'));
     gulp.watch('app/libs/**/*.js', gulp.series('libs-js'));
     gulp.watch('app/libs/**/*.css', gulp.series('libs-css'));
   });
 
-  gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'server', 'setWatch')));
+  gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'server')));
+
+  //
 })();
