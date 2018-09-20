@@ -1,0 +1,59 @@
+.reviews
+  background: resolve('reviews/bg-top.svg') no-repeat left top, resolve('reviews/bg-bottom.svg') no-repeat right bottom, rgba(196, 196, 196, 0.46)
+  padding: 50px 0 70px
+
+  &__container
+    max-width: 950px
+    padding: 0 20px
+    margin: 0 auto
+
+  &__item
+    box: top
+    flex-direction: @sm-down column
+
+    & + &
+      margin-top: 25px @sm 10px @md 40px
+
+    &:nth-child(even)
+      flex-direction: @md row-reverse
+
+      ^^&__content
+        margin: @md 14px 58px 0 0
+
+        &:before
+          position: @md absolute 0 0 null auto
+          transform: @md translate(100%, 100%)
+          border-width: @md 39px 44px 0 0
+          border-color: @md #ffffff transparent transparent transparent
+
+  &__photo
+    border-radius: 50%
+    size: 80px @md 150px
+
+  &__content
+    background: #fff
+    padding: 15px 21px 25px @md 31px 71px 54px
+    filter: drop-shadow(1px 4px 15px #C4C4C4)
+    position: relative
+    margin: 20px 0 0 0 @sm 14px 0 0 38px @md 14px 0 0 58px
+
+    &:before
+      position: absolute 0 null null 0
+      transform: translate(200%, -100%) rotate(-180deg) @sm translate(-100%, 100%)
+      content: ''
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 18px 15px 0 @sm 0 24px 22px 0 @md 0 44px 39px 0
+      border-color: transparent #ffffff transparent transparent
+
+  &__title
+    text: #000 700 13px @md 18px
+    margin-bottom: 10px @md 20px
+
+  &__text
+    text: #000 13px 1.34 @md 18px
+
+  &__btn
+    text: center
+    margin-top: 50px
