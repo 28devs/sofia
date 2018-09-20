@@ -1,0 +1,14 @@
+section.reviews
+  .reviews__container
+    each i in [1,2,3]
+      article.reviews__item
+        .reviews__photo-wrap
+          img.reviews__photo(src='img/reviews/photo-' + i + '.jpg')
+
+        .reviews__content
+          .reviews__title Иванова Ксения, 28 лет
+
+          .reviews__text Очень полезный и интересный тренинг. Не смотря на ограниченность двумя днями — информация структурирована так, что работа идёт по нарастающей. К концу второго дня в голове складывается пзал, появляется структура и понимание "как это делается". Отдельное спасибо за "сложных участников", очень яркий опыт.
+
+  .reviews__btn
+    .btn участвовать
