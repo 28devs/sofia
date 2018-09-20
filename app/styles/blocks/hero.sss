@@ -1,13 +1,16 @@
 .hero
+  position: relative
   background: resolve('hero/bg-image.jpg') center / cover @retina resolve('hero/bg-image@2x.jpg') center / cover
 
   &__text
-    padding: 90px 0 48px
+    position: relative
+    padding: 85px 0 40px @lg 90px 0 55px
     color: #fff
     text-align: center
     width: 100%
     max-width: 720px
     margin: 0 auto
+    z-index: 10
 
   &__title
     font-family: $font-decor
@@ -34,6 +37,56 @@
     font-range: $sm-px $xl-px
     font-weight: 700
     line-height: 1
-  
+
   &__btn
-    margin-top: 25px
+    margin-top: 35px
+
+  &__rec
+    position: absolute
+
+    &-y
+      background: resolve('hero/yellow-corner.svg') no-repeat left / contain
+      size: 33vw calc(34vw / 2.04) size('hero/yellow-corner.svg')
+      top: 0
+      left: 0
+
+    &-w
+      background: resolve('hero/white-corner.svg') no-repeat left / contain
+      size: 100vw calc(100vw * 0.395) @lg size('hero/white-corner.svg')
+      bottom: auto @lg 0
+      top: 0 @lg auto
+      left: auto @lg 0
+      right: 0 @lg auto
+      mix-blend-mode: initial @lg overlay
+      opacity: .2
+      transform: @lg-down rotate(-180deg)
+
+
+    &-p
+      background: resolve('hero/purple-corner.svg') no-repeat center / contain
+      size: size('hero/purple-corner.svg')
+      bottom: -286px
+      right: 0
+      display: @md-down none
+
+  &__dots
+    position: absolute
+
+    &-y
+      background: resolve('hero/dots-yellow.svg') no-repeat center / contain
+      size: 11vw 21.56vw auto @lg size('hero/dots-yellow.svg')
+      bottom: 70px @md 6vw @lg 78px
+      right: 35px @md 10.6vw @lg 128px
+      z-index: 2
+      min-height: 107.75px
+      min-width: 54.93px
+
+    &-w
+      background: resolve('hero/dots-white.svg') no-repeat center / contain
+      size:  11vw 21.56vw @lg size('hero/dots-white.svg')
+      bottom: 12px @md -4.1vw @lg -50px
+      right: 18px @md 6.5vw @lg 70px
+      z-index: 1
+      min-height: 119.46px
+      min-width: 60.8px
+
