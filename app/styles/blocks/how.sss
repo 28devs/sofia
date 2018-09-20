@@ -1,0 +1,79 @@
+.how
+  padding: 30px 0 70px
+  overflow: hidden
+
+  &__title
+    text: rgba(0, 0, 0, 0.87) 700 25px 1 center @md 45px
+    margin-bottom: 10px @md 35px
+
+  &__container
+    box:
+
+  &__photos
+    display: none @lg block
+
+  &__photo
+    display: block
+    position: relative
+    z-index: 9
+    max-width: @lg-down 200px
+
+    &-wrap
+      position: relative
+
+      &:before
+        content: ''
+        display: block
+        background: resolve('icons/arrow-dots-double.svg')
+        size: size('icons/arrow-dots-double.svg')
+        z-index: 1
+
+      & + &
+        margin-top: 5px
+
+      &:nth-child(1)
+        position: relative null null null -30px
+
+        &:before
+          position: absolute 0 null null -15%
+
+      &:nth-child(2)
+        position: relative null -50px null null
+
+        &:before
+          position: absolute 5% null null -18%
+
+      &:nth-child(3)
+
+        &:before
+          position: absolute -10% null null -24%
+
+  &__steps
+    background: resolve('how/bg-top.svg') no-repeat left top, resolve('how/bg-bottom.svg') no-repeat right bottom, #804EA3
+    padding: 20px 20px 40px 60px @sm 20px 20px 40px 80px @md 50px 70px 80px 110px
+    box: space-between vertical
+    margin-left: 0 @lg 70px
+    position: relative
+
+    &:after
+      content: ''
+      position: absolute 0 0 null null
+      transform: translate(50%, 30%)
+      background: resolve('icons/arrow-dots-double.svg')
+      size: width('icons/arrow-dots-double.svg') 408px
+
+  &__step
+    text: #fff 14px 1.1 -0.02em @sm 18px @md 23px
+    position: relative
+
+    &:before
+      text: #C4C4C4 bold 43px 1 -0.01em @sm 53px
+      position: absolute
+      transform: translate(-140%, -3px)
+
+    @for $i from 1 to 4
+      &:nth-child($i):before
+        content: '$i.'
+
+    & + &
+      margin-top: 40px
