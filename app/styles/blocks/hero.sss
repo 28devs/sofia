@@ -1,0 +1,36 @@
+.hero
+  background: resolve('hero/bg-image.jpg') center / cover @retina resolve('hero/bg-image@2x.jpg') center / cover
+
+  &__text
+    padding: 90px 0 48px
+    color: #fff
+    text-align: center
+    width: 100%
+    max-width: 720px
+    margin: 0 auto
+
+  &__title
+    font-family: $font-decor
+    font-size: responsive 50px 55px
+    font-range: $sm-px $xl-px
+    letter-spacing: .17em
+    line-height: 1
+
+  &__subtitle
+    font-size: responsive 30px 43px
+    font-range: $sm-px $xl-px
+    letter-spacing: -.05em
+    margin: 25px 0
+    line-height: 1
+
+  &__skill
+    font-size: responsive 18px 30px
+    font-range: $sm-px $xl-px
+    line-height: 1.1
+    margin-bottom: 15px
+
+  &__effective
+    font-size: responsive 21px 30px
+    font-range: $sm-px $xl-px
+    font-weight: 700
+    line-height: 1
