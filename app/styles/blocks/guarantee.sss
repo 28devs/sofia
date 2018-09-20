@@ -1,0 +1,53 @@
+.guarantee
+  background: #FFB13B
+  padding: 16px 20px 20px @md 36px 20% 40px
+  text-align: center
+  position: relative
+
+  & > *:not(&__arrow)
+    position: relative
+    z-index: 9
+
+  &__title
+    text: rgba(0, 0, 0, 0.87) 700 21px 1 0.13em @md 26px
+    margin-bottom: 20px
+
+  &__text
+    text: rgba(0, 0, 0, 0.87) 14px 1.2 @md 23px
+    margin-bottom: 20px
+
+  &__text-small
+    text: rgba(0, 0, 0, 0.87) 12px 1.2 @md 17px
+
+  &__arrow
+    z-index: 1
+
+    &:after
+      content: ''
+      display: block
+
+    &--1:after
+      position: absolute null null null 10%
+      top: -200px @md 23%
+      size: 71px 139px
+      background: svg-load('icons/arrow-dots.svg' fill: rgba(255, 255, 255, 0.54)) no-repeat center / contain
+      transform: rotate(-180deg)
+
+    &--2:after
+      position: absolute null null null 15%
+      top: -200px @md 0
+      size: 57px 112px
+      background: svg-load('icons/arrow-dots.svg' fill: #fff) no-repeat center / contain
+      transform: rotate(-180deg)
+
+    &--3:after
+      position: absolute -10px 10% null null
+      size: 117px 231px
+      background: svg-load('icons/arrow-dots.svg' fill: rgba(255, 255, 255, 0.54)) no-repeat center / contain
+      display: @md-down none
+
+    &--4:after
+      position: absolute -180px 2% null null
+      size: 156px 308px
+      background: svg-load('icons/arrow-dots.svg' fill: #C4C4C4) no-repeat center / contain
+      display: @md-down none
