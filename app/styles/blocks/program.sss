@@ -1,0 +1,90 @@
+.program
+  background: #E0E0E0
+  padding: 40px 0
+  overflow: hidden
+  position: relative
+
+  &:before, &:after
+    content: ''
+    z-index: 1
+
+  &:before
+    background: resolve('icons/arrow-dots-white.svg') no-repeat top / contain @md resolve('program/arrows-left.svg') no-repeat
+    size: 70px 230px @md size('program/arrows-left.svg')
+    position: absolute 2px null null 2px @md absolute 1% null null 5%
+
+  &:after
+    background: resolve('program/arrows-right.svg') no-repeat
+    size: size('program/arrows-right.svg')
+    position: absolute null 5% 10% null
+    display: @sm-down none
+
+  &__title
+    text: #804EA3 700 25px 1 center @md 45px
+    margin-bottom: 10px @md 35px
+    padding: 0 20px
+
+  &__item
+    background: #fff
+    max-width: 640px
+    margin: 0 auto
+    padding: 15px @sm 20px 10% @md 30px
+    position: relative
+    z-index: 9
+
+    &:before
+      text: rgba(128, 78, 163, 0.9) 700 57px 1 -0.07em @md 77px @lg rgba(128, 78, 163, 0.57) 233px
+      font-family: $font-numb
+      margin: @md-down -37px 0 -20px -12px @lg-down -60px 0 -22px 0
+      display: block
+
+    &:nth-child(1):before
+      letter-spacing: -0.15em
+      position: @lg absolute 30px null null -125px
+
+    &:nth-child(2):before
+      position: @lg absolute 30px null null -143px
+
+    &:nth-child(3):before
+      position: @lg absolute -70px null null -144px
+
+    @for $i from 1 to 3
+      &:nth-child($i):before
+        content: '$i.'
+
+    & + &
+      margin-top: 20px @md 32px
+
+  &__name
+    text: #804EA3 700 27px 1 center @md 32px @lg 36px
+
+  &__params
+    box: middle
+
+  &__param
+    text: #804EA3 700 16px 1 center @md 18px
+    margin: 10px 0 @md 10px 0 20px
+
+    & + &
+      margin-left: 20px
+
+  &__list
+    margin: 10px 0 10px 20px @lg 10px 30px
+    text: 14px @md 18px
+
+    &-item
+
+      &:before
+        content: '●'
+        color: #804EA3
+        border-radius: 5px
+        margin-left: -20px
+        padding-right: 10px
+
+      & + &
+        margin-top: 5px
+
+  &__text
+    text: #000 700 20px 1 center @md 30px
+    margin-top: 10px
+    padding: 0 15%
