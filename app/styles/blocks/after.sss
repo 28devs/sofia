@@ -1,0 +1,47 @@
+.after
+  padding: 40px 0
+  background: none @md resolve('after/dots.svg') no-repeat right 70px top 80px
+
+  &__title
+    max-width: 992px
+    margin: 0 auto
+    width: 100%
+    padding: 15px 0
+    background: linear-gradient(182.88deg, #EE8104 -2.22%, rgba(255, 255, 255, 0) 81.08%), #F2AF4A
+    font-size: responsive 25px 45px
+    font-range: $sm-px $xl-px
+    text-align: center
+    line-height: 1.1
+    font-weight: 700
+    letter-spacing: 0.11em
+    color: #fff
+
+  &__list
+    max-width: 700px
+    width: 100%
+    margin: 20px auto
+
+    &-item
+      box: horizontal middle
+      color: rgba(0, 0, 0, .87)
+      font-size: responsive 15px 27px
+      font-range: $sm-px $xl-px
+      font-weight: 700
+      padding: 5px 8px @md 10px 8px @lg 15px 10px
+
+      &:before
+        display: block
+        content: ''
+        background: svg-load('after/check-sm.svg', stroke: #000) no-repeat left center @md svg-load('after/check.svg', stroke: #000) no-repeat left center
+        min-width: width('after/check-sm.svg') @md width('after/check.svg')
+        margin-right: 10px @md 15px @lg 25px
+        size: size('after/check-sm.svg') @md size('after/check.svg')
+
+
+
+      &:nth-child(even)
+        font-weight: 400
+        background-color: #c4c4c4
+
+        &:before
+          background: svg-load('after/check-sm.svg', stroke: #fff) no-repeat left center @md svg-load('after/check.svg', stroke: #fff) no-repeat left center
