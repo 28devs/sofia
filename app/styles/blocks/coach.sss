@@ -1,0 +1,197 @@
+.coach
+  padding: 20px 0 0 @sm 40px 0 0
+  background: svg-load('coach/corner-g.svg') no-repeat right top -10px / 83% @md svg-load('coach/corner-g.svg') no-repeat right top -10px / 63%, resolve('coach/dots.svg') no-repeat left 60px top 360px
+  color: rgba(0, 0, 0, .87)
+  position: relative
+
+  &__title
+    margin: 0 auto
+    width: 100%
+    padding: 15px 0
+    background: svg-load('coach/corner-y.svg') no-repeat left bottom 10px / 43%, linear-gradient(182.88deg, #EE8104 -2.22%, rgba(255, 255, 255, 0) 81.08%), #F2AF4A
+    font-size: responsive 26px 49px
+    font-range: $sm-px $xl-px
+    text-align: center
+    line-height: 1.1
+    font-weight: 700
+    color: @md-down #fff
+    z-index: 22
+    position: relative
+
+    &:after
+
+  &__person
+    display: block @md flex
+
+  &__avatar
+    flex: 1 1 30%
+    margin-top: 20px
+    margin-right: 0 @xs 15px @md 36px
+    margin-bottom: 0px @xxs 20px
+    float: none @xxs left @md none
+
+    img
+      width: 150px @md 100%
+      min-width: 100% @xs 150px
+
+  &__text
+    flex: 1 3 70%
+    padding-bottom: 15px
+
+  &__desc
+    padding-top: 20px @md 40px
+    font-size: responsive 16px 22px
+    font-range: $sm-px $xl-px
+    line-height: 1
+
+    &-p
+      & + &
+        margin-top: 15px @md 25px
+
+      &:last-child
+        clear: both @xs initial
+
+  &__ul-wrap
+    margin-top: 35px
+    color: #804ea3
+
+  &__ul-title
+    font-size: 22px @md 25px
+    line-height: 1
+    font-weight: 700
+    margin-bottom: 10px
+
+  &__ul
+    padding-left: 20px
+
+    &-item
+      font-size: 16px @md 21px
+      font-weight: 700
+
+  &__list-wrap
+    background-color: #f3f3f3 @sm #fff
+    padding: 10px 0 50px
+
+  &__list-title
+    text-align: center
+    margin-bottom: 50px
+    font-size: responsive 23px 33px
+    font-range: $sm-px $xl-px
+    font-weight: 700
+    line-height: 1
+    font-style: normal @lg italic
+    color: #EE8104
+
+  &__list
+    box: horizontal space-between wrap
+
+    &-item
+      flex: 1 1 100% @sm 1 1 50% @lg 1 1 25%
+      padding: 0 2vw
+      margin-bottom: -20px @sm 50px @lg 0
+      background-color: #fff
+
+      &:nth-child(odd)
+        margin-right: @sm-down 28%
+
+        .coach__list-inner
+          float: @sm-down right
+
+      &:nth-child(even)
+        margin-left: @sm-down 28%
+        padding-left: @sm-down 40px
+
+
+        .coach__list-inner
+          float: @sm-down left
+
+      @each $item in (1, 2, 3, 4)
+        &:nth-child($(item))
+          .coach__list-inner
+            &:before
+              content: '$(item).'
+
+    &-inner
+      position: relative
+      font-size: 16px @md 18px
+      font-weight: 700
+      line-height: 1.3
+      height: auto @sm 225px
+      width: 140px @sm 175px
+      min-height: @sm-down 170px
+      margin: 0 auto
+      background-color: #fff @sm rgba(196, 196, 196, 0.4)
+      box: center middle
+      padding: 60px 0 @sm 15px
+      box-sizing: border-box
+      text-align: center
+
+      &:before
+        position: absolute
+        top: -10px @sm -35px
+        left: -32px
+        font-size: 53px
+        font-weight: 700
+        color: #FFB13B @sm #EE8104
+
+      &:after
+        position: absolute
+        bottom: 25px @sm 0
+        right: 0
+        content: ''
+        background: svg-load('coach/item-corner.svg', fill: #FFB13B) @sm svg-load('coach/item-corner.svg', fill: #F2994A)
+        size: size('coach/item-corner.svg')
+
+  &__quote
+    max-width: 800px
+    width: 100%
+    padding: 40px 0
+    margin: 0 auto
+    text-align: left @sm center
+
+    &-wrap
+      padding: 0 60px @sm 0 20px
+
+    &-wrap > :first-child
+      position: relative
+      display: inline-block
+
+      &:before
+        content: ''
+        position: absolute
+        size: size('coach/quote-sm.png') @sm size('coach/quote.png')
+        background: resolve('coach/quote-sm.png') no-repeat @sm resolve('coach/quote.png') no-repeat
+
+      &:before
+        left: -45px @sm -80px
+        top: -20px @sm 0
+        z-index: -1
+
+    &-wrap > :last-child
+      position: relative
+      display: inline-block
+
+      &:after
+        content: ''
+        position: absolute
+        size: size('coach/quote-sm.png') @sm size('coach/quote.png')
+        background: resolve('coach/quote-sm.png') no-repeat @sm resolve('coach/quote.png') no-repeat
+
+      &:after
+        transform: scale(-1)
+        right: 10px @sm -10px
+        bottom: -30px @sm -45px
+        z-index: -1
+
+    &-text
+      font-size: 14px @sm 22px
+      line-height: 1.1
+
+      & + &
+        margin-top: 25px
+
+  &__btn
+    margin-top: 80px
+
+    &-wrap
+      text-align: center

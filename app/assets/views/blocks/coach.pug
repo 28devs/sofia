@@ -1,0 +1,39 @@
+section.coach
+  .container.container--md-full
+    h4.coach__title Кто ведет:
+
+  .container
+    .coach__person
+      .coach__avatar
+        img(src="img/coach/avatar.jpg", alt="avatar")
+
+      .coach__text
+        .coach__desc
+          p.coach__desc-p Меня зовут <b>София ИБРАГИМОВА</b> – я сертифицированный коуч ICU, специалист по Дизайну человека, НЛП практик
+          p.coach__desc-p Главная тема моей профессии и жизни – делать людей гармоничными, эффективными и счастливыми.
+          p.coach__desc-p Мои интересы – энергетическая работа, коучинг, личностный рост, психология и поиск созидательного потенциала.
+
+        .coach__ul-wrap
+          .coach__ul-title Мои основные компетенции:
+          ul.coach__ul
+            each item in coachUl
+              li.coach__ul-item= item
+
+  .container.container--md-full
+    .coach__list-wrap
+      .coach__list-title А это значит, что я умею эффективно:
+
+      ul.coach__list
+        each item in coachList
+          li.coach__list-item
+            .coach__list-inner= item
+
+  .coach__quote
+    .coach__quote-wrap
+      p.coach__quote-text Привычный формат работы для меня –<br>  индивидуальные частные консультации.
+      p.coach__quote-text За годы работы я поняла, что на первых этапах самопознания людям необходимы базовые навыки целеполагания и целедостижения.
+      p.coach__quote-text Поэтому я решила записать курс, в котором собрала все основные навыки, которые нужны именно тебе, чтобы встать на вектор развития и <b>начать меняться</b> уже сегодня.
+      p.coach__quote-text Ты получишь базу знаний и сможешь вернуться к теории и заданиям в любое удобное время.  А если ты приобретешь пакет «Я и Тренер»,  то получишь еще и мою индивидуальную поддержку на протяжении всего марафона.
+
+    .coach__btn-wrap
+      .coach__btn.btn участвовать
