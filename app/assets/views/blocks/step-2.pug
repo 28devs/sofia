@@ -1,0 +1,42 @@
+section.form
+  h1.form__title Оплата марафона «Жизнь мечты за 28 дней»
+
+  .form__container
+
+    .form__head
+      .form__step
+        .form__step-number 1.
+        .form__step-text Введите свои данные
+
+      .form__step.form__step--active
+        .form__step-number 2.
+        .form__step-text Выберите способ оплаты
+
+      .form__step
+        .form__step-number 3.
+        .form__step-text Получите доступ к марафону
+
+    form.form__body
+      .form__radios
+        .form__field
+          .form__accept.form__checkbox(data-input-radio)
+            input.form__checkbox-inp(type='radio')
+            span Карта Сбербанка
+
+        .form__field
+          .form__accept.form__checkbox(data-input-radio)
+            input.form__checkbox-inp(type='radio')
+            span Yandex деньги
+
+        .form__field
+          .form__accept.form__checkbox(data-input-radio)
+            input.form__checkbox-inp(type='radio')
+            span TimePad
+
+      .form__btn-wrap.form__field
+        .form__btn.btn Отправить
+
+      .form__safe Ваши данные в безопасности
+  .form__question Возникли вопросы или нужна помощь: coach.marathon2018@gmail.com
+
+

@@ -1,0 +1,153 @@
+.form
+  padding: 40px 0
+  color: rgba(0, 0, 0, .87)
+
+  &__title
+    text-align: center
+    font-size: responsive 18px 31px
+    font-range: $sm-px $xl-px
+    font-weight: 700
+    padding: 0 10px @sm 0
+
+  &__container
+    max-width: 600px
+    width: 100%
+    margin: 0 auto
+
+  &__head
+    box: middle @sm space-between
+    padding: 0 10px
+
+  &__step
+    margin-top: 30px @sm 60px
+    padding: 0 10px @sm 0 20px
+    height: 64px
+    flex-flow: row @sm column
+    justify-content: center @sm center
+    align-items: center @sm flex-start
+    font-size: 18px @sm 13px
+    position: relative
+    display: none @sm flex
+
+    &--active
+      background-color: #FFAE51
+      display: flex
+
+      &:before
+        position: absolute
+        top: 0
+        left: -16px
+        content: ''
+        size: size('form/step-start.svg')
+        background: svg-load('form/step-start.svg') no-repeat center
+
+      &:after
+        position: absolute
+        top: 0
+        right: -15px
+        content: ''
+        size: size('form/step-end.svg')
+        background: svg-load('form/step-end.svg') no-repeat center
+
+      & + ^^&__step:not(:last-child)
+        &:after
+          position: absolute
+          top: 0
+          right: -15px
+          content: ''
+          size: size('form/step-sep.svg')
+          background: svg-load('form/step-sep.svg') no-repeat center
+
+      &:first-child
+        &:before
+          display: none
+
+    &-number
+      margin-right: 10px @sm 0
+      font-weight: 700
+      font-size: 19px
+
+  &__body
+    padding: 40px 10px 0 @sm 60px 10px 0px
+
+  &__field
+    width: 100% @sm 80%
+    margin: 0 auto
+
+    & + &
+      margin-top: 25px @sm 35px
+
+  &__label
+    font-size: 21px
+    font-weight: 700
+    margin-bottom: 10px
+
+  &__input
+    background-color: #fff
+    border: solid 1px rgba(0, 0, 0, .6)
+    font-size: 18px
+    width: 100%
+    padding: 10px 14px
+    outline: 0
+
+  &__checkbox
+    box: center
+    cursor: pointer
+    user-select: none
+    font-size: 21px
+
+    &-inp
+      position: absolute
+      visibility: hidden
+
+    &:before
+      display: inline-block
+      content: ''
+      size: 19px @sm 21px
+      margin-right: 10px
+      border: solid 2px #757575
+      border-radius: 4px
+
+    &.checked
+
+      &:before
+        background: svg-load('form/checked.svg') no-repeat center / 90%
+
+  &__btn-wrap
+    text-align: center
+
+  &__safe
+    margin-top: 15px
+    font-size: 18px
+    letter-spacing: .01
+    text-align: center
+
+  &__question
+    margin-top: 40px
+    padding: 0 10px
+    font-size: 16px @md 19px
+    letter-spacing: .01
+    color: rgba(130, 130, 130, 0.89)
+    text-align: center
+
+  &__accept
+    font-size: responsive 16px 21px
+    font-range: $sm-px $xl-px
+
+    &:before
+      size: 18px @sm 21px
+      background-size: @sm-down 90%
+
+  &__radios
+    box: vertical center middle
+    margin-bottom: 40px
+
+    ^&__field
+      width: 200px !important
+
+  &__success
+    letter-spacing: .01em
+    font-size: responsive 18px 27px
+    font-range: $sm-px $xl-px
+    text-align: center
+    margin: 40px 0 60px
