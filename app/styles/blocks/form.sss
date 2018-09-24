@@ -1,6 +1,6 @@
 .form
   padding: 40px 0
-  color: rgba(0, 0, 0, .87)
+  color: rgba(0, 0, 0, .8)
 
   &__title
     text-align: center
@@ -8,11 +8,14 @@
     font-range: $sm-px $xl-px
     font-weight: 700
     padding: 0 10px @sm 0
+    margin-bottom: 30px
 
   &__container
-    max-width: 600px
+    max-width: 640px
+    padding: 0 20px 20px
     width: 100%
     margin: 0 auto
+    background: #C4C4C4
 
   &__head
     box: middle @sm space-between
@@ -82,12 +85,18 @@
     font-weight: 700
     margin-bottom: 10px
 
+    &-number
+      font-size: 19px
+      letter-spacing: 0.01em
+      color: #FFFFFF
+      margin-right: 8px
+
   &__input
     background-color: #fff
-    border: solid 1px rgba(0, 0, 0, .6)
+    border: 0
     font-size: 18px
     width: 100%
-    padding: 10px 14px
+    padding: 14px 14px
     outline: 0
 
   &__checkbox
@@ -105,7 +114,7 @@
       content: ''
       size: 19px @sm 21px
       margin-right: 10px
-      border: solid 2px #757575
+      border: solid 2px #5c5c5c
       border-radius: 4px
 
     &.checked
@@ -116,10 +125,14 @@
   &__btn-wrap
     text-align: center
 
+  &__btn
+    padding-left: 56px
+    padding-right: 56px
+
   &__safe
     margin-top: 15px
     font-size: 18px
-    letter-spacing: .01
+    letter-spacing: .01em
     text-align: center
 
   &__question
@@ -141,6 +154,7 @@
   &__radios
     box: vertical center middle
     margin-bottom: 40px
+    min-height: auto @sm 300px
 
     ^&__field
       width: 200px !important
@@ -151,3 +165,4 @@
     font-range: $sm-px $xl-px
     text-align: center
     margin: 40px 0 60px
+    min-height: auto @sm 300px
