@@ -1,6 +1,6 @@
 .coach
   padding: 20px 0 0 @sm 40px 0 0
-  background: svg-load('coach/corner-g.svg') no-repeat right top -10px / 83% @md svg-load('coach/corner-g.svg') no-repeat right top -10px / 63%, resolve('coach/dots.svg') no-repeat left 60px top 360px
+  background: svg-load('coach/corner-g.svg') no-repeat right top -10px / 83%, svg-load('coach/corner-grey.svg') no-repeat left bottom / 55% @md svg-load('coach/corner-g.svg') no-repeat right top -10px / 63%, resolve('coach/dots.svg') no-repeat left 60px top 360px, svg-load('coach/corner-grey.svg') no-repeat left bottom
   color: rgba(0, 0, 0, .87)
   position: relative
 
@@ -69,7 +69,7 @@
       font-weight: 700
 
   &__list-wrap
-    background-color: #f3f3f3 @sm #fff
+    background-color: #f3f3f3 @sm transparent
     padding: 10px 0 50px
 
   &__list-title
@@ -89,7 +89,7 @@
       flex: 1 1 100% @sm 1 1 50% @lg 1 1 25%
       padding: 0 2vw
       margin-bottom: -20px @sm 50px @lg 0
-      background-color: #fff
+      background-color: #fff @sm transparent
 
       &:nth-child(odd)
         margin-right: @sm-down 28%
@@ -145,7 +145,7 @@
   &__quote
     max-width: 800px
     width: 100%
-    padding: 40px 0
+    padding: 40px 0 28px @sm 40px 0
     margin: 0 auto
     text-align: left @sm center
 
@@ -191,7 +191,10 @@
         margin-top: 25px
 
   &__btn
-    margin-top: 80px
+    margin-top: 50px @sm 80px
+    color: @md-down #fff
+    text-shadow: @md-down 0px 4px 4px rgba(0, 0, 0, 0.25)
+    background: @md-down linear-gradient(180deg, #FFC807 0%, rgba(249, 92, 92, 0.480663) 74.59%, rgba(255, 255, 255, 0) 100%), #EE8104
 
     &-wrap
       text-align: center
