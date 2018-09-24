@@ -51,7 +51,7 @@
 
   &__steps
     background: resolve('how/bg-top.svg') no-repeat left top, resolve('how/bg-bottom.svg') no-repeat right bottom, #804EA3
-    padding: 20px 20px 40px 60px @sm 20px 20px 40px 80px @md 50px 70px 80px 110px
+    padding: 35px 30px 40px 90px @md 50px 70px 80px 110px
     box: space-between vertical
     margin-left: 0 @lg 70px
     position: relative
@@ -59,16 +59,16 @@
     &:after
       content: ''
       position: absolute 0 0 null null
-      transform: translate(50%, 30%)
+      transform: scale(.8) translate(50%, 30%) @sm scale(1) translate(50%, 30%)
       background: resolve('icons/arrow-dots-double.svg')
       size: width('icons/arrow-dots-double.svg') 408px
 
   &__step
-    text: #fff 14px 1.1 -0.02em @sm 18px @md 23px
+    text: #fff 18px 1.2 -0.02em  @md 1.1 23px
     position: relative
 
     &:before
-      text: #C4C4C4 bold 43px 1 -0.01em @sm 53px
+      text: #C4C4C4 bold 53px 1 -0.01em
       font-family: $font-numb
       position: absolute
       transform: translate(-140%, -3px)
