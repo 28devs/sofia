@@ -69,12 +69,13 @@
       font-weight: 700
 
   &__list-wrap
-    background-color: #f3f3f3 @sm transparent
+    background: #f3f3f3 svg-load('coach/corner-w.svg') no-repeat 20px 240px @sm transparent
     padding: 10px 0 50px
 
   &__list-title
     text-align: center
-    margin-bottom: 50px
+    margin-bottom: 20px @sm 50px
+    margin-top: @sm-down 10px
     font-size: responsive 23px 33px
     font-range: $sm-px $xl-px
     font-weight: 700
@@ -92,15 +93,18 @@
       background-color: #fff @sm transparent
 
       &:nth-child(odd)
-        margin-right: @sm-down 28%
+        margin-right: @sm-down 35%
+        padding-right: @sm-down 10px
 
         .coach__list-inner
           float: @sm-down right
 
-      &:nth-child(even)
-        margin-left: @sm-down 28%
-        padding-left: @sm-down 40px
+          &:before
+            top: @sm-down 5px
 
+      &:nth-child(even)
+        margin-left: @sm-down 26%
+        padding-left: @sm-down 50px
 
         .coach__list-inner
           float: @sm-down left
