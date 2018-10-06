@@ -99,29 +99,7 @@
     padding: 14px 14px
     outline: 0
 
-  &__checkbox
-    box: center
-    cursor: pointer
-    user-select: none
-    font-size: 21px
-
-    &-inp
-      position: absolute
-      visibility: hidden
-
-    &:before
-      display: inline-block
-      content: ''
-      size: 19px @sm 21px
-      margin-right: 10px
-      border: solid 2px #5c5c5c
-      border-radius: 4px
-
-    &.checked
-
-      &:before
-        background: svg-load('form/checked.svg') no-repeat center / 90%
-
+  
   &__btn-wrap
     text-align: center
 
@@ -166,3 +144,34 @@
     text-align: center
     margin: 40px 0 60px
     min-height: auto @sm 300px
+
+
+.checkbox
+  box: horizontal-reverse right
+  cursor: pointer
+  user-select: none
+  font-size: 21px
+
+  &__inp
+    position: absolute
+    opacity: 0
+    cursor: pointer
+    height: 0
+    width: 0
+
+  &__mark
+    box: center
+
+    &:before
+      display: inline-block
+      content: ''
+      size: 19px @sm 21px
+      margin-right: 10px
+      border: solid 2px #5c5c5c
+      border-radius: 4px
+
+  &__inp:checked ~
+
+    ^&__mark
+      &:before
+        background: svg-load('form/checked.svg') no-repeat center / 90%
